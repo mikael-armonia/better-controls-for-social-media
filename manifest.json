@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Better Controls for Social Media",
+  "description": "Unlocks native video controls on Instagram, Facebook Stories videos. Simply reveals the standard browser video player with volume control, seek bar, and play/pause buttons. Automatically remembers your volume preference.\n\n✨ What it does:\n- Exposes hidden video controls on Instagram, Facebook Stories\n- Volume control with memory - set it once, enjoy forever  \n- Seek bar for video navigation\n- Standard play/pause functionality\n- Works on Instagram feed, Instagram Stories, Instagram Reels and Facebook Stories\n- Lightweight - just reveals what's already there\n\nNo fancy features, just the basic video controls you expect. Simple and effective.",
+  "version": "1.0",
+  "action": {
+    "default_title": "Better Controls for Social Media"
+  },
+  "icons": {
+    "32": "icons/better-controls-32.png",
+    "64": "icons/better-controls-64.png",
+    "128": "icons/better-controls-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://instagram.com/*",
+    "*://facebook.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.instagram.com/*",
+        "*://instagram.com/*",
+        "*://facebook.com/stories/*",
+        "*://www.facebook.com/stories/*"
+      ],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
